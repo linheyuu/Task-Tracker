@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Confirm Task Deletion</h1>
+        <p>Are you sure you want to delete the task titled "{{ task.title }}"?</p>
+        <form method="POST">
+	        <a href="{{ url_for('index') }}" class="button">No, Cancel</a>
+            <input type="submit" class="button" id="delete_button" value="Yes, Delete">
+        </form>
+    </div>
+</body>
+</html>

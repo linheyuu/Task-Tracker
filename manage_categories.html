@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Manage Categories</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Manage Categories</h1>
+        
+        <!-- Form to Add Category -->
+        <form method="POST">
+            <label for="category">Add New Category</label>
+            <input class="textbox" type="text" id="category" name="category" required><br>
+            <input type="submit" class="button" value="Add Category" name="add_category"><br><br>
+        </form>
+        
+        <!-- Form to Delete Category -->
+        <form method="POST">
+            <label for="delete_category">Delete Category</label>
+            <select class="textbox" id="delete_category" name="category" required>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" id="delete_button" class="button" value="Delete Category" name="delete_category"><br><br>
+        </form>
+        
+        <a href="{{ url_for('index') }}" class="button" id="back_to_home_button">Back to Home</a>
+    </div>
+</body>
+</html>

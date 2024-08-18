@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Edit Task</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Edit Task</h1>
+        <form method="POST">
+            <label for="title">Title</label><br>
+            <input class="textbox" type="text" id="title" name="title" value="{{ task['title'] }}" required><br>
+
+            <label for="description">Description</label><br>
+            <textarea class="textbox" id="description" name="description">{{ task['description'] }}</textarea><br>
+
+            <label for="due_date">Due Date</label><br>
+            <input class="textbox" type="date" id="due_date" name="due_date" value="{{ task['due_date'] }}" required><br>
+			
+            <label for="priority">Priority</label><br>
+            <select class="textbox" id="priority" name="priority">
+                <option value="High" {% if task['priority'] == "High" %}selected{% endif %}>High</option>
+                <option value="Medium" {% if task['priority'] == "Medium" %}selected{% endif %}>Medium</option>
+                <option value="Low" {% if task['priority'] == "Low" %}selected{% endif %}>Low</option>
+            </select><br>
+			
+            <label for="status">Status</label><br>
+            <select class="textbox" id="status" name="status">
+                <option value="Not Started" {% if task['status'] == "Not Started" %}selected{% endif %}>Not Started</option>
+                <option value="In Progress" {% if task['status'] == "In Progress" %}selected{% endif %}>In Progress</option>
+                <option value="Completed" {% if task['status'] == "Completed" %}selected{% endif %}>Completed</option>
+            </select><br>
+
+            <label for="category">Category</label><br>
+            <select class="textbox" id="category" name="category">
+                {% for category in categories %}
+                <option value="{{ category }}" {% if task['category'] == category %}selected{% endif %}>{{ category }}</option>
+                {% endfor %}
+            </select><br>
+
+            <input type="submit" class="button" value="Save Changes"><br>
+        </form>
+        <a href="{{ url_for('index') }}" class="button" id="back_to_home_button">Back to Home</a>
+    </div>
+</body>
+</html>

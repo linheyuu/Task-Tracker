@@ -1,0 +1,143 @@
+body {
+    font-family: Segoe UI, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.box {
+    max-width: 700px; /* Increased width for better readability */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Slightly more shadow for better contrast */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px; /* Adjusted margin for better spacing */
+}
+
+p {
+    margin-top: 8px;
+    line-height: 1.5; /* Improved line height for readability */
+}
+
+.task_list {
+    list-style-type: none;
+    padding-left: 0; /* Removed padding for alignment */
+}
+
+.task_list li {
+    background-color: #fafafa;
+    margin: 15px 0;
+    padding: 15px; /* Increased padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow for better contrast */
+    position: relative;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Added transition for smooth effects */
+}
+
+.task_list li:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.task_list li::before {
+    content: '•';
+    color: #28a745;
+    font-size: 20px; /* Slightly larger bullet for emphasis */
+    position: absolute;
+    left: -30px; /* Moved to the left to align with padding */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    font-family: Segoe UI, sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Added transition for smooth effects */
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+label {
+    font-size: 18px;
+    display: block; /* Ensures labels are block level for better alignment */
+    margin-bottom: 5px; /* Spacing between label and input */
+}
+
+.textbox {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    font-family: Segoe UI, sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Added transition for smooth effects */
+}
+
+.textbox:focus {
+    border-color: #28a745; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+textarea {
+    resize: vertical; /* Allows vertical resizing only */
+    min-height: 100px; /* Ensures consistent height */
+}
+
+#yellow_button {
+    background-color: #f5c300;
+	transition: background-color 0.3s;
+}
+
+#yellow_button:hover {
+    background-color: #e0b700;
+}
+
+#delete_button {
+    background-color: #d32f2f;
+	transition: background-color 0.3s;
+}
+
+#delete_button:hover {
+    background-color: #c62828;
+}
+
+#add_task_button {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#back_to_home_button {
+    margin-top: 7px;
+}
+
+#filter_status {
+    width: 150px; /* Consistent width for select element */
+}
+

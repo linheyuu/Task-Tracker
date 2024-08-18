@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Confirm Delete Category</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Confirm Deletion</h1>
+        <p>Are you sure you want to delete the category "{{ category }}"? This action cannot be undone.</p>
+        
+        <form method="POST">
+            <button type="submit" class="button" name="confirm" value="yes">Yes, Delete</button>
+            <a href="{{ url_for('manage_categories') }}" class="button">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

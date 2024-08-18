@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Task Tracker</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Task Tracker</h1>
+        <hr>
+
+        <a id="add_task_button" href="{{ url_for('add_task') }}" class="button">Add New Task</a><br><br>
+
+        <!-- Filter Form -->
+        <form method="GET" action="{{ url_for('index') }}" class="filter-form">
+            <label for="filter_priority">Filter by Priority:</label>
+            <select class="textbox" id="filter_priority" name="filter_priority">
+                <option value="">All</option>
+                <option value="High" {% if selected_priority == 'High' %}selected{% endif %}>High</option>
+                <option value="Medium" {% if selected_priority == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="Low" {% if selected_priority == 'Low' %}selected{% endif %}>Low</option>
+            </select>
+        
+            <label for="filter_status">Filter by Status:</label>
+            <select class="textbox" id="filter_status" name="filter_status">
+                <option value="">All</option>
+                <option value="Not Started" {% if selected_status == 'Not Started' %}selected{% endif %}>Not Started</option>
+                <option value="In Progress" {% if selected_status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                <option value="Completed" {% if selected_status == 'Completed' %}selected{% endif %}>Completed</option>
+            </select>
+
+            <label for="filter_category">Filter by Category:</label>
+            <select class="textbox" id="filter_category" name="filter_category">
+                <option value="">All</option>
+                {% for category in categories %}
+                <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('manage_categories') }}" class="button">Manage Categories</a><br><br>
+            <button type="submit" class="button">Filter</button>
+        </form>
+        <hr>
+        
+        <ul class="task_list">
+            {% for task in tasks %}
+            <li>
+                <h2>{{ task.title }}</h2>
+                <p>{{ task.description }}</p>
+                <p><strong>Due Date:</strong> {{ task.due_date }}</p>
+                <p><strong>Priority:</strong> {{ task.priority }}</p>
+                <p><strong>Status:</strong> {{ task.status }}</p>
+                <p><strong>Category:</strong> {{ task.category }}</p>
+                <a class="button" id="yellow_button" href="{{ url_for('edit_task', id=task.id) }}">Edit</a>
+                <a class="button" id="delete_button" href="{{ url_for('confirm_delete', id=task.id) }}">Delete</a>
+            </li>
+            {% else %}
+            <p>No tasks found.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
