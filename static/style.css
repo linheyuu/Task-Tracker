@@ -51,13 +51,7 @@ p {
 }
 
 .task_list li::before {
-    content: '•';
-    color: #28a745;
-    font-size: 20px; /* Slightly larger bullet for emphasis */
-    position: absolute;
-    left: -30px; /* Moved to the left to align with padding */
-    top: 50%;
-    transform: translateY(-50%);
+    content: none; /* Remove the green dot before each task */
 }
 
 .button {
@@ -136,8 +130,3 @@ textarea {
 #back_to_home_button {
     margin-top: 7px;
 }
-
-#filter_status {
-    width: 150px; /* Consistent width for select element */
-}
-
