@@ -138,7 +138,7 @@ def edit_task(id):
             task['due_date'] = request.form['due_date']
             task['status'] = request.form['status']
             task['category'] = request.form['category']
-            task['priority'] = request.form['category']
+            task['priority'] = request.form['priority']
             save_tasks(tasks)
         return redirect(url_for('index'))
 
